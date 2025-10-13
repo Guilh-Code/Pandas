@@ -33,3 +33,5 @@ df.iloc[0]["nomes"]
 
 df.iloc[-1]["idades"]
 # %%
+df
+# %%
