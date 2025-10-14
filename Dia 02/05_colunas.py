@@ -43,3 +43,4 @@ df = df[colunas]
 df
 
 # %%
+ 
