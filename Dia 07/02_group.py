@@ -1,0 +1,31 @@
+# %%
+import pandas as pd
+# %%
+
+transacoes = pd.read_csv("../Data/transacoes.csv", sep=";")
+transacoes.head()
+
+# %%
+
+transacoes.groupby(by=["IdCliente"]).count()
+
+# %%
+
+transacoes.groupby(by=["IdCliente"], as_index=False)[["IdTransacao"]].count()
+
+# %%
+
+summary = (transacoes.groupby(by=["IdCliente"], as_index=False)
+                     .agg({"IdTransacao": ['count'], 
+                           "QtdePontos": ['sum', 'mean']}))
+
+summary
+
+# %%
+
+summary.columns = ["idCliente", "qtdeTransacao", "totalPontos", "avgPontos"]
+summary
+
+# %%
+
+
